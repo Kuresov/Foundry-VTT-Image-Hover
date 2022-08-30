@@ -106,7 +106,7 @@ export class Settings {
         "Top right": "Top right",
         Centre: "Centre",
       },
-      default: "Bottom left", // Default Value
+      default: "Centre",   // Default Value
       type: String, // Value type
     });
 
@@ -122,7 +122,7 @@ export class Settings {
         max: 20,
         step: 0.5,
       },
-      default: 7, // Default Value
+      default: 3,             // Default Value
       type: Number, // Value type
     });
 
@@ -138,7 +138,7 @@ export class Settings {
         max: 5000,
         step: 100,
       },
-      default: 0, // Default Value
+            default: 2000,           // Default Value
       type: Number, // Value type
     });
   }

@@ -14,6 +14,7 @@ let showSpecificArt = false; // track when to show/hide art when GM uses keybind
 let showArtTimer = 6000; // Time (milliseconds) spent showing art when GM decides to "showSpecificArt" to everyone.
 
 let chatPortraitActive = false; // chat portrait incompatibility check
+let mouseDownCounter = 0;
 
 /**
  * Supported Foundry VTT file types
@@ -49,6 +50,19 @@ function registerShowArtSocket() {
     const token = canvas.tokens.get(tokenID);
     canvas.hud.imageHover.showToAll(token);
   });
+}
+
+/**
+ * Register callbacks to keep track of mouse-down state. This is used to
+ * prevent showing the ImageHoverHUD when a token is momentarily hovered
+ * and then dragged, or dragged outside of the viewport.
+ */
+function registerMouseDownCallbacks() {
+  window.onblur = () => { mouseDownCounter = 0; }
+  document.body.onmouseleave = () => { mouseDownCounter = 0; }
+  document.body.onmouseenter = () => { mouseDownCounter = 0; }
+  document.body.onmousedown = () => { ++mouseDownCounter; }
+  document.body.onmouseup = () => { --mouseDownCounter; }
 }
 
 /**
@@ -381,10 +395,10 @@ class ImageHoverHUD extends BasePlaceableHUD {
         canvas.activeLayer.name == "TokenLayerPF2e")
     ) {
       // Show token image if hovered, otherwise don't
-      setTimeout(function () {
-        if (
-          token == canvas.tokens.hover &&
-          token.actor.img == canvas.tokens.hover.actor.img
+      setTimeout(function() {
+        if (token == canvas.tokens.hover &&
+          token.actor.img == canvas.tokens.hover.actor.img &&
+          mouseDownCounter <= 0
         ) {
           canvas.hud.imageHover.bind(token);
         } else {
@@ -567,6 +581,7 @@ Hooks.on("init", function () {
   Settings.createSettings();
   registerModuleSettings();
   registerShowArtSocket();
+  registerMouseDownCallbacks();
 });
 
 Hooks.on("closeSettingsConfig", function () {

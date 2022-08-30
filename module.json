@@ -1,26 +1,31 @@
 {
-  "name": "image-hover",
-  "title": "Image Hover",
-  "description": "This module allows users to see the character art while hovering over a token.",
-  "author": "Eriku",
-  "authors": [
-    {
-      "name": "Eriku",
-      "discord": "Eriku#2108",
-      "url": "https://github.com/Eriku33"
-    }
-  ],
-  "version": "3.0.2",
-  "compatibility": {
-    "minimum": "10",
-    "verified": "10.291"
-  },
-  "socket": true,
-  "esmodules": ["image-hover.js"],
-  "url": "https://github.com/Eriku33/Foundry-VTT-Image-Hover",
-  "manifest": "https://github.com/Eriku33/Foundry-VTT-Image-Hover/releases/download/3.0.2/module.json",
-  "download": "https://github.com/Eriku33/Foundry-VTT-Image-Hover/releases/download/3.0.2/module.zip",
-  "readme": "https://github.com/Eriku33/Foundry-VTT-Image-Hover/blob/main/README.md",
-  "bugs": "https://github.com/Eriku33/Foundry-VTT-Image-Hover/issues",
-  "changelog": "https://github.com/Eriku33/Foundry-VTT-Image-Hover/blob/main/CHANGELOG.md"
+    "name": "image-hover",
+    "title": "Image Hover - Kuresov Fork",
+    "description": "This module allows users to see the character art while hovering over a token.",
+    "version": "3.0.3-kuresov-0.0.4",
+    "compatibility": {
+      "minimum": "10",
+      "verified": "10.291"
+    },
+    "authors": [
+        {
+            "name": "Eriku",
+            "discord": "Eriku#2108",
+            "url": "https://github.com/Eriku33"
+        },
+        {
+            "name": "Kuresov",
+            "url": "https://github.com/Kuresov"
+        }
+    ],
+    "socket": true,
+    "esmodules": [
+        "image-hover.js"
+    ],
+    "url": "https://github.com/Kuresov/Foundry-VTT-Image-Hover",
+    "manifest": "https://raw.githubusercontent.com/Kuresov/Foundry-VTT-Image-Hover/kuresov-master/module.json",
+    "download": "https://github.com/Kuresov/Foundry-VTT-Image-Hover/raw/kuresov-master/release/kuresov-Foundry-VTT-Image-Hover-master.zip",
+    "readme": "https://github.com/Kuresov/Foundry-VTT-Image-Hover/blob/kuresov-master/README.md",
+    "bugs": "https://github.com/Kuresov/Foundry-VTT-Image-Hover/issues",
+    "changelog": "https://github.com/Kuresov/Foundry-VTT-Image-Hover/blob/kuresov-master/CHANGELOG.md"
 }
